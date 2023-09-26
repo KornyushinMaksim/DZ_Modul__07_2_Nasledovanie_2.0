@@ -7,10 +7,9 @@ public class EmployeePieceWork extends Employee {
     public EmployeePieceWork() {
     }
 
-    public EmployeePieceWork(String name, String surname, int child, double pieceWorkSalary, int quantityWork) {
+    public EmployeePieceWork(String name, String surname, int child, double pieceWorkSalary) {
         super(name, surname, child);
         this.pieceWorkSalary = pieceWorkSalary;
-        this.quantityWork = quantityWork;
         this.tax = 0.15;
     }
 
@@ -38,6 +37,11 @@ public class EmployeePieceWork extends Employee {
         this.salary = salary;
     }
 
+    public void quantityAndHours(int quantityWork, int hours){
+        this.quantityWork = quantityWork;
+        this.workHours = hours;
+    }
+
     @Override
     public double takeSalary() {
         this.salary = this.pieceWorkSalary * this.quantityWork;
@@ -53,6 +57,7 @@ public class EmployeePieceWork extends Employee {
                 this.tax += 0.05;
                 this.salaryTax = this.salaryChild = this.salary - (this.salary * this.tax);
             }
+            getBonus();
         } else {
             this.tax = 0;
             this.salaryTax = this.salary;

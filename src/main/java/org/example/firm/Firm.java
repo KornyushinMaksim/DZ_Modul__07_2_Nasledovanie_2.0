@@ -1,8 +1,8 @@
 package org.example.firm;
 
 import org.example.people.Employee;
-
 import java.util.ArrayList;
+import static org.example.Main.courseTugr;
 
 public class Firm {
     private ArrayList<Employee> employees;
@@ -37,11 +37,17 @@ public class Firm {
     }
 
     public String myToStringTax(){
-        String str = "ФИО\t\t\t\t\tНДС%\t\t\tСумма\t\t\tСумма с НДС\n";
+        String str = "ФИО\t\t\t\t\tНДС%\t\t\tСумма\t\t\t" + str();
         for (int i = 0; i < employees.size(); i++){
             str += employees.get(i).myToStringTax() + "\n";
         }
         return str;
-
     }
+
+    private String str (){
+        return "Сумма с НДС\n\t\t\t\t\t\t\t\t\t\t\t\t\t(руб/тугрики)\n" +
+                "\t\t\t\t\t\t\t\t\t\t\t\t\tКурс 1/" + courseTugr + "\n";
+    }
+
 }
+

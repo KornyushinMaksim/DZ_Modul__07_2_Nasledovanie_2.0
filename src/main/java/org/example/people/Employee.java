@@ -8,8 +8,10 @@ abstract public class Employee {
     protected double salaryTax;
     private int child;
     protected double salaryChild;
-    protected double courseTugr;
+//    protected double courseTugr;
     private boolean ofshor;
+    protected int workHours;
+    protected double bonus;
 
     public Employee() {
     }
@@ -18,7 +20,8 @@ abstract public class Employee {
         this.name = name;
         this.surname = surname;
         this.child = child;
-        this.courseTugr = 6;
+        this.ofshor = false;
+//        this.courseTugr = 6;
     }
 
     public String getName() {
@@ -55,6 +58,12 @@ abstract public class Employee {
 
     public double takeSalaryTax(){
         return 0;
+    }
+
+    public void getBonus(){
+        if (this.workHours > 200){
+            this.salary += (this.salary * 0.1);
+        }
     }
 
     @Override

@@ -14,6 +14,8 @@ import org.example.people.EmployeePieceWork;
 import org.example.people.EmployeeRate;
 
 public class Main {
+    public static int courseTugr = 6;
+
     public static void main(String[] args) {
         Firm firm = new Firm();
 
@@ -22,7 +24,7 @@ public class Main {
                 "Прохор", "Авдотин", 0, 312, 218
         );
         EmployeePieceWork employeePieceWork = new EmployeePieceWork(
-                "Дмитрий", "Осипов", 0, 12876, 6
+                "Дмитрий", "Осипов", 0, 12876
         );
 
         firm.addEmployee(employeeRate);
@@ -30,6 +32,7 @@ public class Main {
         firm.addEmployee(employeePieceWork);
 
         employeePieceWork.setOfshor(true);
+        employeePieceWork.quantityAndHours(6, 189);
 
         employeeRate.takeSalary();
         employeeHourly.takeSalary();

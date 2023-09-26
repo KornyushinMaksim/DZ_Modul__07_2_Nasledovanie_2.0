@@ -11,6 +11,7 @@ public class EmployeeRate extends Employee{
         super(name, surname, child);
         this.rate = rate;
         this.tax = 0.20;
+        this.workHours = 26 * 8;
     }
 
     public double getRate() {
@@ -35,6 +36,7 @@ public class EmployeeRate extends Employee{
                 this.tax += 0.05;
                 this.salaryTax = this.rate - (this.rate * this.tax);
             }
+            getBonus();
         } else {
             this.tax = 0;
             this.salaryTax = this.salary;
