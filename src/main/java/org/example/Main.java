@@ -1,19 +1,48 @@
-package org.example;
+package org.example;//      Разработать и протестировать набор классов для решения задачи
+//        подсчета зароботной платы сотрудников некоторой фирмы.
+//        На фирме есть несколько способов оплаты труда:
+//        ■ ставка – указывается, сколько сотрудник получает за рабочий день;
+//        для каждого сотрудника записывается, сколько дней он отработал в месяце;
+//        ■ почасовая – указывается, сколько сотрудник получает в час, для каждого сотрудника;
+//        записывается, сколько часов он отработал в месяце
+//        ■ сдельная – указывается, сколько сотрудник получит за выполненную работу;
+//        для каждого сотрудника записываются суммы для каждой работы, что он успел сделать за месяц.
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import org.example.firm.Firm;
+import org.example.people.EmployeeHourly;
+import org.example.people.EmployeePieceWork;
+import org.example.people.EmployeeRate;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Firm firm = new Firm();
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        EmployeeRate employeeRate = new EmployeeRate("Иван", "Фурман", 1, 32000);
+        EmployeeHourly employeeHourly = new EmployeeHourly(
+                "Прохор", "Авдотин", 0, 312, 218
+        );
+        EmployeePieceWork employeePieceWork = new EmployeePieceWork(
+                "Дмитрий", "Осипов", 0, 12876, 6
+        );
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
-        }
+        firm.addEmployee(employeeRate);
+        firm.addEmployee(employeeHourly);
+        firm.addEmployee(employeePieceWork);
+
+        employeePieceWork.setOfshor(true);
+
+        employeeRate.takeSalary();
+        employeeHourly.takeSalary();
+        employeePieceWork.takeSalary();
+
+        employeeRate.takeSalaryTax();
+        employeeHourly.takeSalaryTax();
+        employeePieceWork.takeSalaryTax();
+
+        System.out.println();
+        System.out.println(firm.myToStringSalary());
+        System.out.println();
+        System.out.println(firm.myToStringTax());
     }
+
 }
