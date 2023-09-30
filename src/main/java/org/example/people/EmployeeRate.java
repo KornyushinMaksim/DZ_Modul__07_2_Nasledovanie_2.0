@@ -1,61 +1,61 @@
 package org.example.people;
 
 public class EmployeeRate extends Employee{
-    private double rate;
+//    private double rate;
 
     public EmployeeRate() {
         super();
     }
 
-    public EmployeeRate(String name, String surname, int child, double rate) {
-        super(name, surname, child);
-        this.rate = rate;
+    public EmployeeRate(String name, String surname, double oplata) {
+        super(name, surname, oplata);
         this.tax = 0.20;
-        this.workHours = 26 * 8;
+        this.workTime *= 8;
     }
 
-    public double getRate() {
-        return rate;
-    }
+//    public double getRate() {
+//        return rate;
+//    }
+//
+//    public void setRate(double rate) {
+//        this.rate = rate;
+//    }
 
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
+//    @Override
+//    public double takeSalary() {
+//        return this.rate;
+//    }
 
-    @Override
-    public double takeSalary() {
-        return this.rate;
-    }
-
-    @Override
-    public double takeSalaryTax() {
-        if (!super.getOfshor()) {
-            if (super.getChild() > 0) {
-                this.salaryTax = this.rate - (this.rate * this.tax);
-            } else {
-                this.tax += 0.05;
-                this.salaryTax = this.rate - (this.rate * this.tax);
-            }
-            getBonus();
-        } else {
-            this.tax = 0;
-            this.salaryTax = this.salary;
-        }
-        return this.salaryTax;
-    }
+//    @Override
+//    public double takeSalaryTax() {
+//        if (!super.getOfshor()) {
+//            if (super.getChild() > 0) {
+//                this.salaryTax = this.salary - (this.salary * this.tax);
+//            } else {
+//                this.tax += 0.05;
+//                this.salaryTax = this.salary - (this.salary * this.tax);
+//            }
+//            getBonus();
+//        } else {
+//            this.tax = 0;
+//            this.salaryTax = this.salary;
+//        }
+//        return this.salaryTax;
+//    }
 
     @Override
     public String toString() {
-        return super.toString() + "\t\t\tставка\t\t\t" + rate;
+        return super.toString() + "\t\t\tставка\t\t\t" + this.salary;
     }
 
     @Override
     public String myToStringSalary(){
-        return super.toString() + "\t\t\tставка\t\t\t" + rate;
+        return super.toString() + "\t\t\tставка\t\t\t" + this.salary;
     }
 
     @Override
     public String myToStringTax(){
-        return super.toString() + "\t\t\t" + this.tax + "\t\t\t\t" + this.rate + "\t\t\t" + this.salaryTax;
+        return super.toString() + "\t\t\t" + this.tax + "\t\t\t" + this.salary + "\t\t\t" + (this.salary -
+                this.salary * this.tax);
     }
 }

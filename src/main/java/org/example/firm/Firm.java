@@ -2,9 +2,9 @@ package org.example.firm;
 
 import org.example.people.Employee;
 import java.util.ArrayList;
-import static org.example.Main.courseTugr;
 
 public class Firm {
+    public static int courseTugr = 6;
     private ArrayList<Employee> employees;
 
     public Firm() {
@@ -17,6 +17,10 @@ public class Firm {
 
     public void addEmployee(Employee employee){
         employees.add(employee);
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return employees;
     }
 
     @Override
@@ -46,7 +50,7 @@ public class Firm {
 
     private String str (){
         return "Сумма с НДС\n\t\t\t\t\t\t\t\t\t\t\t\t\t(руб/тугрики)\n" +
-                "\t\t\t\t\t\t\t\t\t\t\t\t\tКурс 1/" + courseTugr + "\n";
+                "\t\t\t\t\t\t\t\t\t\t\t\t\tКурс 1/" + Firm.courseTugr + "\n";
     }
 
 }

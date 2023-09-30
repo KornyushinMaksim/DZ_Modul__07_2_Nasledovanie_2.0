@@ -9,38 +9,46 @@ package org.example;//      Разработать и протестироват
 //        для каждого сотрудника записываются суммы для каждой работы, что он успел сделать за месяц.
 
 import org.example.firm.Firm;
-import org.example.people.EmployeeHourly;
-import org.example.people.EmployeePieceWork;
-import org.example.people.EmployeeRate;
+import org.example.people.*;
+
+import java.util.ArrayList;
 
 public class Main {
-    public static int courseTugr = 6;
 
     public static void main(String[] args) {
         Firm firm = new Firm();
 
-        EmployeeRate employeeRate = new EmployeeRate("Иван", "Фурман", 1, 32000);
-        EmployeeHourly employeeHourly = new EmployeeHourly(
-                "Прохор", "Авдотин", 0, 312, 218
-        );
-        EmployeePieceWork employeePieceWork = new EmployeePieceWork(
-                "Дмитрий", "Осипов", 0, 12876
-        );
+        ArrayList<Employee> workers = new ArrayList<>();
+        EmployeeRate ivan = new EmployeeRate("Иван", "Фурман", 32000);
+        EmployeeHourly prohor = new EmployeeHourly("Прохор", "Авдотин", 312);
+        EmployeePieceWork dima = new EmployeePieceWork("Дмитрий", "Осипов", 12876);
+        EmployeeRate petr = new EmployeeRate("Пётр", "Петров", 28000);
+        EmployeeHourly andre = new EmployeeHourly("Андрей", "Шатилов", 292);
+        EmployeePieceWork vasya = new EmployeePieceWork("Василий", "Стрипо", 14540);
 
-        firm.addEmployee(employeeRate);
-        firm.addEmployee(employeeHourly);
-        firm.addEmployee(employeePieceWork);
+        firm.addEmployee(ivan);
+        firm.addEmployee(prohor);
+        firm.addEmployee(dima);
+        firm.addEmployee(petr);
+        firm.addEmployee(andre);
+        firm.addEmployee(vasya);
 
-        employeePieceWork.setOfshor(true);
-        employeePieceWork.quantityAndHours(6, 189);
+        dima.setOfshor(true);
+        vasya.setOfshor(true);
+        ivan.setChild(2);
+        andre.setChild(1);
 
-        employeeRate.takeSalary();
-        employeeHourly.takeSalary();
-        employeePieceWork.takeSalary();
+        ivan.setWorkTime(1);
+        prohor.setWorkTime(210);
+        dima.setWorkTime(4);
+        petr.setWorkTime(1);
+        andre.setWorkTime(234);
+        vasya.setWorkTime(5);
 
-        employeeRate.takeSalaryTax();
-        employeeHourly.takeSalaryTax();
-        employeePieceWork.takeSalaryTax();
+        for (int i = 0; i < firm.getEmployees().size(); i++){
+            firm.getEmployees().get(i).takeSalary();
+            firm.getEmployees().get(i).takeTax();
+        }
 
         System.out.println();
         System.out.println(firm.myToStringSalary());
