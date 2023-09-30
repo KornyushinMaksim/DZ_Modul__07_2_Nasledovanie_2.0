@@ -26,9 +26,11 @@ public class Firm {
     @Override
     public String toString() {
         String str = "ФИО\t\t\t\t\tВид оплаты\t\tСумма\n";
+        str += "--------------------------------------------------------------";
         for (int i = 0; i < employees.size(); i++){
             str += employees.get(i).toString() + "\n";
         }
+        str += "--------------------------------------------------------------";
         return str;
     }
 
@@ -41,16 +43,20 @@ public class Firm {
     }
 
     public String myToStringTax(){
-        String str = "ФИО\t\t\t\t\tНДС%\t\t\tСумма\t\t\t" + str();
+        String str = "";
+        str += "--------------------------------------------------------------------\n";
+        str += "ФИО\t\t\t\t|\tНДС%\t|\tСумма\t\t|\t" + str();
+        str += "--------------------------------------------------------------------\n";
         for (int i = 0; i < employees.size(); i++){
             str += employees.get(i).myToStringTax() + "\n";
         }
+        str += "--------------------------------------------------------------------\n";
         return str;
     }
 
     private String str (){
-        return "Сумма с НДС\n\t\t\t\t\t\t\t\t\t\t\t\t\t(руб/тугрики)\n" +
-                "\t\t\t\t\t\t\t\t\t\t\t\t\tКурс 1/" + Firm.courseTugr + "\n";
+        return "Сумма с НДС\n\t\t\t\t|\t\t\t|\t\t\t\t|\t(руб/тугрики)\n" +
+                "\t\t\t\t|\t\t\t|\t\t\t\t|\tКурс 1/" + Firm.courseTugr + "\n";
     }
 
 }

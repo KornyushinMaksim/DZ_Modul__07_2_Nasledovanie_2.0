@@ -1,7 +1,6 @@
 package org.example.people;
 
 public class EmployeeRate extends Employee{
-//    private double rate;
 
     public EmployeeRate() {
         super();
@@ -12,36 +11,6 @@ public class EmployeeRate extends Employee{
         this.tax = 0.20;
         this.workTime *= 8;
     }
-
-//    public double getRate() {
-//        return rate;
-//    }
-//
-//    public void setRate(double rate) {
-//        this.rate = rate;
-//    }
-
-//    @Override
-//    public double takeSalary() {
-//        return this.rate;
-//    }
-
-//    @Override
-//    public double takeSalaryTax() {
-//        if (!super.getOfshor()) {
-//            if (super.getChild() > 0) {
-//                this.salaryTax = this.salary - (this.salary * this.tax);
-//            } else {
-//                this.tax += 0.05;
-//                this.salaryTax = this.salary - (this.salary * this.tax);
-//            }
-//            getBonus();
-//        } else {
-//            this.tax = 0;
-//            this.salaryTax = this.salary;
-//        }
-//        return this.salaryTax;
-//    }
 
     @Override
     public String toString() {
@@ -55,7 +24,7 @@ public class EmployeeRate extends Employee{
 
     @Override
     public String myToStringTax(){
-        return super.toString() + "\t\t\t" + this.tax + "\t\t\t" + this.salary + "\t\t\t" + (this.salary -
-                this.salary * this.tax);
+        return String.format("%s\t\t|\t%.2f\t|\t%.2f\t|\t%.2f",
+                super.toString(), this.tax, this.salary, this.salary - this.salary * this.tax);
     }
 }

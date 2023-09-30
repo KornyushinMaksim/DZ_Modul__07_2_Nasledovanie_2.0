@@ -50,9 +50,6 @@ public class Main {
             firm.getEmployees().get(i).takeTax();
         }
 
-        System.out.println();
-        System.out.println(firm.myToStringSalary());
-        System.out.println();
         System.out.println(firm.myToStringTax());
     }
 

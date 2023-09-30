@@ -60,7 +60,7 @@ abstract public class Employee {
 
     @Override
     public String toString() {
-        return name + " " + surname;
+        return String.format("%s %s", name, surname);
     }
 
     public String myToStringSalary() {
